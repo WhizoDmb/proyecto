@@ -7,8 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #ffffff; /* Fondo claro */
-            color: #333; /* Texto oscuro para buen contraste */
+            background-color: #d9e6fad3; /* Fondo claro */
+            color: #000000; /* Texto oscuro para buen contraste */
         }
 
         .navbar {
@@ -25,7 +25,7 @@
         }
 
         .navbar-nav .nav-link:hover {
-            color: #4ade80; /* Verde lima en hover */
+            color: #21c7ff; /* Verde lima en hover */
         }
 
         .btn-danger {
@@ -42,18 +42,30 @@
         }
 
         .form-control-custom {
-            border-radius: 0.375rem;
-            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-        }
+        border: 1px solid #ced4da;
+        border-radius: 0.375rem;
+        padding: 0.375rem 0.75rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
 
-        .form-control-custom::placeholder {
-            color: #6c757d;
-        }
+    .form-control-custom::placeholder {
+        color: #6c757d;
+        opacity: 1;
+    }
 
-        .form-control-custom:focus {
-            border-color: #4ade80; /* Verde lima en focus */
-            box-shadow: 0 0 0 0.2rem rgba(72, 187, 120, 0.25);
-        }
+    .form-control-custom:focus {
+        border-color: #00ff51;
+        box-shadow: 0 0 0 0.2rem rgba(39, 255, 140, 0.776);
+    }
+
+    .form-control-custom:hover {
+        border-color: #007bff;
+    }
+
+    .form-text-custom {
+        font-size: 0.875rem;
+        color: #6c757d;
+    }
 
         .card {
             border: 1px solid #e5e7eb; /* Borde gris claro para las tarjetas */
@@ -68,7 +80,16 @@
         .card-body {
             background-color: #ffffff; /* Fondo blanco en el cuerpo de la tarjeta */
         }
+        .btn-login{
+        background-color: #1f2937;
+        color:#ffffff;
+    }
+    .btn-login:hover{
+        background-color: #5e83b7;
+        color:#ffffff;
+    }
     </style>
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">

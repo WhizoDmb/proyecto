@@ -15,7 +15,7 @@
     @endif
 
   </center>
-    
+
   <div style="padding:50px">
 
   <form method="POST" action="{{ route('profile.update') }}">
@@ -24,21 +24,24 @@
 
         <!-- Email -->
         <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input id="email" type="email" name="email" class="form-control" value="{{ $user->email }}" required autofocus />
+            <label for="inputNombre" class="form-label">Email</label>
+            <input type="text" value="{{ old('email', $user->email) }}" name="email" class="form-control form-control-custom" id="inputNombre" placeholder="Introduce tu email">
+            <small class="form-text form-text-custom">El nombre tu email.</small>
         </div>
+
 
         <!-- New Password -->
         <div class="mb-3">
-            <label for="password" class="form-label">Nueva Contraseña</label>
-            <input id="password" type="password" name="password" class="form-control" />
-            <div class="form-text">Deja en blanco para mantener la contraseña actual.</div>
+            <label for="inputNombre" class="form-label">Nueva Contraseña</label>
+            <input id="password" type="password" name="password" class="form-control form-control-custom" id="inputNombre" placeholder="Introduce tu nuva contraseña">
+            <small class="form-text form-text-custom">Si no escribes nada mantendremos la contraseña actual.</small>
         </div>
 
         <!-- Confirm New Password -->
-        <div class="mb-4">
-            <label for="password_confirmation" class="form-label">Confirma tu nueva contraseña</label>
-            <input id="password_confirmation" type="password" name="password_confirmation" class="form-control" />
+        <div class="mb-3">
+            <label for="inputNombre" class="form-label">Confirmar nueva Contraseña</label>
+            <input id="password_confirmation" type="password" name="password_confirmation" class="form-control form-control-custom" id="inputNombre" placeholder="Introduce la confirmacion de tu nueva contraseña">
+            <small class="form-text form-text-custom">Si no escribes nada mantendremos la contraseña actual.</small>
         </div>
 
         <button type="submit" class="btn btn-primary">Guardar Cambios</button>

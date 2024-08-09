@@ -1,31 +1,4 @@
 @extends('layouts.app')
-<style>
-    .form-control-custom {
-        border: 1px solid #ced4da;
-        border-radius: 0.375rem;
-        padding: 0.375rem 0.75rem;
-        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    }
-
-    .form-control-custom::placeholder {
-        color: #6c757d;
-        opacity: 1;
-    }
-
-    .form-control-custom:focus {
-        border-color: #80bdff;
-        box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
-    }
-
-    .form-control-custom:hover {
-        border-color: #007bff;
-    }
-
-    .form-text-custom {
-        font-size: 0.875rem;
-        color: #6c757d;
-    }
-</style>
 @section('content')
 <div class="container mt-5">
     <div class="mb-4 text-center">

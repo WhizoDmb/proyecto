@@ -62,12 +62,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/asistencias/edit/{id}', [AsistenciaController::class, 'edit'])->name('asistencias.edit');
     Route::put('/asistencias/{id}', [AsistenciaController::class, 'update'])->name('asistencias.update');
     Route::delete('/asistencias/{id}', [AsistenciaController::class, 'destroy'])->name('asistencias.destroy');
-
-    // Rutas para los recursos, protegidas por autenticación
-    Route::resource('categories', CategoryController::class);
-    Route::resource('products', ProductController::class);
-    Route::resource('suppliers', SupplierController::class);
-    Route::resource('customers', CustomerController::class);
 });
 
 // Rutas de autenticación

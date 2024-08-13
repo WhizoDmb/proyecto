@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\MembresiaController;
 use App\Http\Controllers\ModalidadController;
 use App\Http\Controllers\ProfileController;
@@ -62,6 +63,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/asistencias/edit/{id}', [AsistenciaController::class, 'edit'])->name('asistencias.edit');
     Route::put('/asistencias/{id}', [AsistenciaController::class, 'update'])->name('asistencias.update');
     Route::delete('/asistencias/{id}', [AsistenciaController::class, 'destroy'])->name('asistencias.destroy');
+
+    //FILE STORAGE
+    Route::get('/files', [FileController::class, 'loadView'])->name('files.load');
+    Route::post('/files', [FileController::class, 'storeFile'])->name('files.store');
+
+    //
 });
 
 // Rutas de autenticación

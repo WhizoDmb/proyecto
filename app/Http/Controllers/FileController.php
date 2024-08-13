@@ -20,7 +20,7 @@ class FileController extends Controller
 
         // Usa el disco 'local' por defecto y especifica la ruta relativa
         $file = $request->file('file');
-        //$path = 'archivos/privados/' . $file->getClientOriginalName();
+        // $path = 'archivos/privados/' . $file->getClientOriginalName();
 
         // Almacena el archivo en la ruta especificada
         Storage::putFileAs('archivos/privados', $file, $file->getClientOriginalName());

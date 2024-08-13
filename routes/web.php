@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\MembresiaController;
 use App\Http\Controllers\ModalidadController;
 use App\Http\Controllers\ProfileController;
@@ -67,9 +68,10 @@ Route::middleware('auth')->group(function () {
     //FILE STORAGE
     Route::get('/files', [FileController::class, 'loadView'])->name('files.load');
     Route::post('/files', [FileController::class, 'storeFile'])->name('files.store');
-
-    //
 });
+//SIGNED ROUTES + MAIL
+Route::get('/send', [MailController::class, 'send'])->name('mails.send');
+Route::get('/signed', [MailController::class, 'checkUrl'])->name('mails.signed')->middleware('signed');
 
 // Rutas de autenticación
 require __DIR__ . '/auth.php';

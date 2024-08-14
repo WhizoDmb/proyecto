@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DomPdfController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\MembresiaController;
@@ -16,6 +17,7 @@ use App\Models\Asistencia;
 use App\Models\Membresia;
 use App\Models\Socio;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 // Página de inicio
 Route::get('/', function () {
@@ -68,10 +70,26 @@ Route::middleware('auth')->group(function () {
     //FILE STORAGE
     Route::get('/files', [FileController::class, 'loadView'])->name('files.load');
     Route::post('/files', [FileController::class, 'storeFile'])->name('files.store');
+
+    //DOMPDF + MAIL + SIGNED ROUTES + STORAGE
+    /*Route::get('/pdf', function () {
+    $data = ['nombre' => 'Diego'];
+    $pdf = PDF::loadView('invoice', $data);
+    return $pdf->stream('invoice.pdf');
+    });*/
+    Route::get('/pdf/stream', [DomPdfController::class, 'stream'])->name('pdf.stream');
+    Route::get('/pdf/download', [DomPdfController::class, 'download'])->name('pdf.download');
+    Route::get('/pdf/mail', [DomPdfController::class, 'sendPdf'])->name('pdf.mail');
 });
+
+
 //SIGNED ROUTES + MAIL
+Route::get('/invoices/{filename}', [DomPdfController::class, 'viewInvoice'])->name('invoice.view')->middleware('signed');
 Route::get('/send', [MailController::class, 'send'])->name('mails.send');
 Route::get('/signed', [MailController::class, 'checkUrl'])->name('mails.signed')->middleware('signed');
+
+
+
 
 // Rutas de autenticación
 require __DIR__ . '/auth.php';
